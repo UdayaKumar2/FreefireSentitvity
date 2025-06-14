@@ -178,7 +178,7 @@ function App() {
     }
     const userHistory = JSON.parse(localStorage.getItem('device_history') || '[]');
 
-    if (!userHistory.includes(device)) {
+    //if (!userHistory.includes(device)) {
       if (userHistory.length >= 10) {
         setSnackbar({ open: true, message: 'Limit reached. Please wait 5 minutes to add new device.', severity: 'error' });
         startCooldown();
@@ -186,7 +186,7 @@ function App() {
       }
       userHistory.push(device);
       localStorage.setItem('device_history', JSON.stringify(userHistory));
-    }
+    //}
     const cached = cachedSensitivity[device];
     if (cached) {
       setSensitivityData(cached);

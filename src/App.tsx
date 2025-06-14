@@ -408,7 +408,7 @@ function App() {
               Developed by{' '}
               <Box
                 component="a"
-                href="https://your-portfolio-link.com" // 🔁 Replace with your actual portfolio or GitHub link
+                href="https://www.instagram.com/mr._wink._?igsh=NDhycndvZTd3MXFs" 
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ color: 'darkblue', fontWeight: 600, textDecoration: 'underline', mx: 0.5 }}

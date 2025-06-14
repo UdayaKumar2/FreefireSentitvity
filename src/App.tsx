@@ -236,7 +236,7 @@ function App() {
         <source src={vidsrc} type="video/mp4" />
         Your browser does not support the video tag.
       </video> */}
-      
+
       <Box
         className="bg-gradient-to-br from-black to-gray-900 min-h-screen text-white"
         px={isMobile ? 2 : 4}
@@ -244,6 +244,9 @@ function App() {
         sx={{
           position: 'relative',
           zIndex: 1,
+          height:'100%',
+          width: '100%',
+          boxSizing: 'border-box',
         }}
       >
         <Grid container justifyContent="center" height="100%" alignContent="center">
@@ -271,7 +274,7 @@ function App() {
                 FF Sensitivity Zone
               </Typography>
               <Divider sx={{ mb: 2 }} />
-              <Typography align="center" color="orange" fontSize={16} sx={{ mb: 2 }}>
+              <Typography align="center" color="orange" fontSize={16} sx={{ mb: 2,    textShadow: '1px 1px 1px rgba(0, 0, 0, 0.7)' }}>
                 Create perfect settings for epic gameplay
               </Typography>
 
@@ -315,7 +318,7 @@ function App() {
                   );
                 }}
                 renderInput={(params) => (
-                  <TextField {...params} label="Brand" variant="outlined" fullWidth sx={{ mb: 2 }} required />
+                  <TextField {...params} label="Brand" variant="outlined" fullWidth sx={{ mb: 2 }} required color='warning' />
                 )}
               />
 
@@ -334,7 +337,7 @@ function App() {
                   </li>
                 )}
                 renderInput={(params) => (
-                  <TextField {...params} label="Device Model" variant="outlined" fullWidth sx={{ mb: 2 }} required />
+                  <TextField {...params} label="Device Model" variant="outlined" fullWidth sx={{ mb: 2 }} required color='warning' />
                 )}
               />
 
@@ -358,7 +361,7 @@ function App() {
                   );
                 }}
                 renderInput={(params) => (
-                  <TextField {...params} label="Game Mode" variant="outlined" fullWidth sx={{ mb: 2 }} required />
+                  <TextField {...params} label="Game Mode" variant="outlined" fullWidth sx={{ mb: 2 }} required color='warning' />
                 )}
               />
 
@@ -381,7 +384,55 @@ function App() {
               </Button>
 
             </Paper>
+            <Box
+              component="footer"
+              sx={{
+                textAlign: 'center',
+                py: 2,
+                mt: 4,
+                color: 'gray.400',
+                fontSize: 14,
+                backgroundColor: 'white',
+                borderRadius: 26,
+                boxShadow: 1,
+                width: '349px',
+                placeSelf: 'center',
+                animation: 'fadeIn 1.2s ease-in',
+                '@keyframes fadeIn': {
+                  from: { opacity: 0 },
+                  to: { opacity: 1 },
+                }
+              }}
+
+            >
+              Developed by{' '}
+              <Box
+                component="a"
+                href="https://your-portfolio-link.com" // 🔁 Replace with your actual portfolio or GitHub link
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{ color: 'darkblue', fontWeight: 600, textDecoration: 'underline', mx: 0.5 }}
+              >
+                Udayy
+              </Box>
+              [BETA] —
+              <Box
+                component="span"
+                sx={{
+                  color: 'orange',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  textDecoration: 'underline',
+                  mx: 0.5,
+                }}
+                onClick={() => setGuideOpen(true)}
+              >
+                HD Fam
+              </Box>
+              © {new Date().getFullYear()}
+            </Box>
           </Grid>
+
         </Grid>
 
         <Dialog open={open} onClose={() => setOpen(false)} fullWidth maxWidth="xs" TransitionComponent={Transition}>
@@ -436,53 +487,7 @@ function App() {
           </Alert>
         </Snackbar>
         {/* Footer */}
-        <Box
-          component="footer"
-          sx={{
-            textAlign: 'center',
-            py: 2,
-            mt: 4,
-            color: 'gray.400',
-            fontSize: 14,
-            backgroundColor: 'white',
-            borderRadius: 26,
-            boxShadow: 1,
-            width: '349px',
-            placeSelf: 'center',
-            animation: 'fadeIn 1.2s ease-in',
-            '@keyframes fadeIn': {
-              from: { opacity: 0 },
-              to: { opacity: 1 },
-            }
-          }}
 
-        >
-          Developed by{' '}
-          <Box
-            component="a"
-            href="https://your-portfolio-link.com" // 🔁 Replace with your actual portfolio or GitHub link
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{ color: 'darkblue', fontWeight: 600, textDecoration: 'underline', mx: 0.5 }}
-          >
-            Udayy
-          </Box>
-          [BETA] —
-          <Box
-            component="span"
-            sx={{
-              color: 'orange',
-              fontWeight: 600,
-              cursor: 'pointer',
-              textDecoration: 'underline',
-              mx: 0.5,
-            }}
-            onClick={() => setGuideOpen(true)}
-          >
-            HD Fam
-          </Box>
-          © {new Date().getFullYear()}
-        </Box>
 
         {/* Guide Dialog */}
         <Dialog open={guideOpen} onClose={() => setGuideOpen(false)} fullWidth maxWidth="sm" TransitionComponent={Transition}>
